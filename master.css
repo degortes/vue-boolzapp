@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, grey, grey 80%, green 0);
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+
+}
+
+
+#root {
+    width: 1000px;
+    height: 700px;
+    background-color: red;
+
+}
+
+aside {
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-color: yellow;
+}
+main {
+    width: 60%;
+    height: 100%;
+    float: left;
+    background-color: blue;
+
+}
+
+.topside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+}
+
+.mylogo img {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.cta {
+    margin: 10px;
+}
