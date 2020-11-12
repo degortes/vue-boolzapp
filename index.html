@@ -37,7 +37,7 @@
                 </nav>
                 <section id="list">
                     <ul>
-                        <li class="preview" v-for="item,index in contacts">
+                        <li @click="takeIndex(index)" class="preview" v-for="item,index in contacts">
                             <img :src="'img/avatar'+item.avatar+'.jpg'" alt="">
                             <div class="name-item">
                                 <span>{{item.name}}</span>
@@ -52,9 +52,9 @@
             <main>
                 <div class="topmain">
                     <div class="userlogo">
-                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2FAshwinvalento%2Fcartoon-avatar%2Fmaster%2Flib%2Fimages%2Fmale%2F45.png&f=1&nofb=1" alt="">
+                        <img :src="'img/avatar'+contacts[myIndex].avatar+'.jpg'" alt="">
                         <div class="infouser">
-                            <span>Michele</span>
+                            <span>{{contacts[myIndex].name}}</span>
                             <p>ultimo accesso alle</p>
 
                         </div>
@@ -66,10 +66,14 @@
                     </div>
                 </div>
                 <section id="chat" >
-                    <div id="personal" v-for="(item,index) in contacts[1].messages">
+                    <div id="personal" v-for="(item,index) in contacts[myIndex].messages">
                         <div class="received">
                             {{item.message}}
                         </div>
+
+                    </div>
+                    <div class="sent">
+                        ciao
 
                     </div>
 

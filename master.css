@@ -79,8 +79,8 @@ main {
 }
 
 #personal {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 }
 .preview {
     display: flex;
@@ -88,18 +88,24 @@ main {
 
 }
 .received {
+    float: left;
+    display: inline-block;
     min-width: 100px;
     max-width: 300px;
     background-color: white;
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
+    clear: both;
 }
 
 .sent {
+    float: right;
+    clear: both;
+    display: inline-block;
     min-width: 100px;
     max-width: 300px;
-    background-color: white;
+    background-color: green;
     padding: 10px;
     border-radius: 5px;
     margin: 10px;

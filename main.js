@@ -86,7 +86,11 @@ var app = new Vue ({
                 ]
             }
         ],
-
-
+        myIndex: 0
     },
+    methods: {
+        takeIndex(index) {
+            app.myIndex = index;
+        }
+    }
 });
