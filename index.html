@@ -20,7 +20,6 @@
                         <i class="fas fa-circle-notch"></i>
                         <i class="far fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
-
                     </div>
 
                 </div>
@@ -32,8 +31,10 @@
                     </div>
                 </section>
                 <nav>
-                    <button type="button" name="button">find</button>
-                    <input type="text" name="" value="">
+                    <button class="search"type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <input placeholder="Cerca o inizia una nuova chat"class="search-input"type="text">
                 </nav>
                 <section id="list">
                     <ul>
@@ -42,6 +43,10 @@
                             <div class="name-item">
                                 <span>{{item.name}}</span>
                                  <p>{{item.messages[item.messages.length-1].message}}</p>
+                            </div>
+                            <div class="user-date">
+                                17.33
+                                <!-- {{item.messages[item.messages.length-1].date}} -->
                             </div>
                         </li>
                     </ul>
@@ -55,13 +60,13 @@
                         <img :src="'img/avatar'+contacts[myIndex].avatar+'.jpg'" alt="">
                         <div class="infouser">
                             <span>{{contacts[myIndex].name}}</span>
-                            <p>ultimo accesso alle</p>
+                            <p>ultimo accesso alle 18:00</p>
 
                         </div>
                     </div>
                     <div class="cta">
-                        <i class="fas fa-circle-notch"></i>
-                        <i class="far fa-comment-alt"></i>
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
@@ -70,7 +75,6 @@
                         <div class="received">
                             {{item.message}}
                         </div>
-
                     </div>
                     <div class="sent">
                         {{contacts[myIndex].replyes}}
@@ -79,9 +83,13 @@
 
                 </section>
                 <footer>
-                    <button type="button" name="button">smile</button>
-                    <input @keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
-                    <button @click="insert(myIndex)" type="button" name="button">send</button>
+                    <button class="option-send"type="button" name="button">
+                        <i class="far fa-smile"></i>
+                    </button>
+                    <input class="sender"@keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
+                    <button class="option-send" @click="insert(myIndex)" type="button" name="button">
+                        <i class="fas fa-microphone"></i>
+                    </button>
                 </footer>
 
 

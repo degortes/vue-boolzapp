@@ -21,21 +21,19 @@ body {
 #root {
     width: 1000px;
     height: 700px;
-    background-color: red;
 
 }
 
 aside {
-    width: 40%;
+    width: 35%;
     height: 100%;
     float: left;
-    background-color: yellow;
+    background-color: white;
 }
 main {
-    width: 60%;
+    width: 65%;
     height: 100%;
     float: left;
-    background-color: blue;
 
 }
 
@@ -47,6 +45,12 @@ main {
     background-color: lightgrey;
 }
 
+li:hover {
+    background-color: lightgrey;
+}
+li {
+    border-bottom: 1px solid lightgrey;
+}
  img {
     width: 50px;
     height: 50px;
@@ -57,7 +61,32 @@ main {
 .cta {
     margin: 10px;
 }
+.cta i {
+    margin: 5px;
+}
 
+nav::after {
+    content: '';
+    clear: both;
+    display: table;
+
+}
+.search {
+    float: left;
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid lightgrey;
+}
+.search-input {
+    padding: 5px 20px;
+    float: left;
+    width: calc(100% - 50px);
+    border: 1px solid lightgrey;
+    height: 30px;
+
+
+}
 .userlogo, #info-status {
     display: flex;
     align-items: center;
@@ -65,26 +94,45 @@ main {
 }
 
 #info-status {
-    background-color: white;
+    background-color: lightblue;
+    padding: 10px;
 
 }
+.infouser {
+    margin: 10px;
+}
+.infouser span, .name-item span{
+    font-size: 15px;
+    font-weight: bold;
+}
 
+.infouser p {
+    font-size: 13px;
+}
+.name-item p {
+    padding-top: 5px;
+    font-size: 12px;
+}
+.user-date {
+    font-size: 12px;
+    position: absolute;
+    right: 5px;
+    top: 20px;
+}
 .fa-bell-slash {
-    padding: 10px;
+    background-color: white;
+    padding: 12px;
     width: 50px;
     height: 50px;
-    font-size: 30px;
+    font-size: 23px;
     border-radius: 100%;
-    border: 1px solid blue
+    color: lightblue;
 }
 
-#personal {
-    /* display: flex;
-    flex-direction: column; */
-}
 .preview {
     display: flex;
     align-items: center;
+    position: relative;
 
 }
 .received {
@@ -112,12 +160,36 @@ main {
 }
 
 #chat {
-    height: 560px;
-    background-color: coral;
+    height: 580px;
+    background-image: url('https://i.imgur.com/1Rg03go.png');
+    background-size: contain;
 }
 
 
 footer {
-    height: 70px;
-    background-color: pink;
+    height: 50px;
+    background-color: beige;
+}
+footer::after {
+    content: '';
+    clear: both;
+    display: table;
+
+}
+.sender {
+    float: left;
+    width: calc(100% - 140px);
+    height: 40px;
+    margin: 5px 0;
+
+
+}
+.option-send {
+    font-size: 1.5em;
+    border: none;
+    float: left;
+    width: 70px;
+    height: 50px;
+    background-color: transparent;
+
 }
