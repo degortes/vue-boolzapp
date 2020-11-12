@@ -37,9 +37,11 @@
                 </nav>
                 <section id="list">
                     <ul>
-                        <li v-for="item in contacts">
+                        <li class="preview" v-for="item,index in contacts">
+                            <img :src="'img/avatar'+item.avatar+'.jpg'" alt="">
                             <div class="name-item">
-                                {{item.name}}
+                                <span>{{item.name}}</span>
+                                 <p>{{item.messages[item.messages.length-1].message}}</p>
                             </div>
                         </li>
                     </ul>
@@ -62,9 +64,21 @@
                         <i class="far fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
-
-
                 </div>
+                <section id="chat" >
+                    <div id="personal" v-for="(item,index) in contacts[1].messages">
+                        <div class="received">
+                            {{item.message}}
+                        </div>
+
+                    </div>
+
+                </section>
+                <footer>
+                    <button type="button" name="button">smile</button>
+                    <input type="text" name="" value="">
+                    <button type="button" name="button">send</button>
+                </footer>
 
 
             </main>

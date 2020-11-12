@@ -40,7 +40,7 @@ main {
 }
 
 .topside, .topmain {
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,6 +78,40 @@ main {
     border: 1px solid blue
 }
 
-nav {
+#personal {
+    display: flex;
+    flex-direction: column;
+}
+.preview {
+    display: flex;
+    align-items: center;
 
+}
+.received {
+    min-width: 100px;
+    max-width: 300px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.sent {
+    min-width: 100px;
+    max-width: 300px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#chat {
+    height: 560px;
+    background-color: coral;
+}
+
+
+footer {
+    height: 70px;
+    background-color: pink;
 }
