@@ -11,7 +11,7 @@
     <body>
 
         <div id="root">
-            <aside class="">
+            <aside>
                 <div class="topside">
                     <div class="mylogo">
                         <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2FAshwinvalento%2Fcartoon-avatar%2Fmaster%2Flib%2Fimages%2Fmale%2F45.png&f=1&nofb=1" alt="">
@@ -24,10 +24,45 @@
                     </div>
 
                 </div>
+                <section id="info-status">
+                    <i class="far fa-bell-slash"></i>
+                    <div class="infouser">
+                        <span>Ricevi notifiche nuovi messaggi</span>
+                        <p>Attiva notifiche desktop</p>
+                    </div>
+                </section>
+                <nav>
+                    <button type="button" name="button">find</button>
+                    <input type="text" name="" value="">
+                </nav>
+                <section id="list">
+                    <ul>
+                        <li v-for="item in contacts">
+                            <div class="name-item">
+                                {{item.name}}
+                            </div>
+                        </li>
+                    </ul>
+
+                </section>
 
             </aside>
             <main>
                 <div class="topmain">
+                    <div class="userlogo">
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2FAshwinvalento%2Fcartoon-avatar%2Fmaster%2Flib%2Fimages%2Fmale%2F45.png&f=1&nofb=1" alt="">
+                        <div class="infouser">
+                            <span>Michele</span>
+                            <p>ultimo accesso alle</p>
+
+                        </div>
+                    </div>
+                    <div class="cta">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="far fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+
 
                 </div>
 
