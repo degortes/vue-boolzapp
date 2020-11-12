@@ -86,11 +86,18 @@ var app = new Vue ({
                 ]
             }
         ],
-        myIndex: 0
+        myIndex: 0,
+        reply: "",
     },
     methods: {
         takeIndex(index) {
             app.myIndex = index;
+        },
+        insert(myIndex) {
+            app.contacts[myIndex].replyes = app.reply
+            app.reply = "";
+
         }
     }
+
 });

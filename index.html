@@ -73,15 +73,15 @@
 
                     </div>
                     <div class="sent">
-                        ciao
+                        {{contacts[myIndex].replyes}}
 
                     </div>
 
                 </section>
                 <footer>
                     <button type="button" name="button">smile</button>
-                    <input type="text" name="" value="">
-                    <button type="button" name="button">send</button>
+                    <input @keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
+                    <button @click="insert(myIndex)" type="button" name="button">send</button>
                 </footer>
 
 
