@@ -98,6 +98,13 @@ var app = new Vue ({
             app.contacts[myIndex].messages.push({message : app.reply, status : 'sent' })
             app.reply = "";
 
+            var x = setTimeout(function() {
+                app.contacts[myIndex].messages.push({message : 'ok', status : 'received' });
+
+
+                
+            },1000);
+
 
         }
     }
