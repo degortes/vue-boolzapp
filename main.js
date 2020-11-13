@@ -1,6 +1,7 @@
 var app = new Vue ({
     el: '#root',
     data: {
+        smart: 'ok',
         contacts: [
             {
                 name: 'Michele',
@@ -94,8 +95,9 @@ var app = new Vue ({
             app.myIndex = index;
         },
         insert(myIndex) {
-            app.contacts[myIndex].replyes = app.reply
+            app.contacts[myIndex].messages.push({message : app.reply, status : 'sent' })
             app.reply = "";
+
 
         }
     }
