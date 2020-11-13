@@ -1,6 +1,7 @@
 var app = new Vue ({
     el: '#root',
     data: {
+        deleting: false,
         myIndex: 0,
         reply: "",
         findUser: "",
@@ -101,8 +102,26 @@ var app = new Vue ({
             var x = setTimeout(function() {
                 app.contacts[myIndex].messages.push({message : 'ok', status : 'received' });
             },1000);
+        },
+        eraseMsg(item) {
+            item.eraser = !item.eraser;
         }
+    },
+    beforeCreated: {
+        function() {
+            app.contacts.forEach((item, i) => {
+                item.messages.foreach((index, i) => {
+                    index.eraser = false;
+
+                });
+
+            })
+
+
+        }
+
     }
+
 
 
 

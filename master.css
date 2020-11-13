@@ -73,6 +73,7 @@ nav::after {
 #list {
     height: 100%;
 }
+
 .search {
     border: none;
     float: left;
@@ -179,6 +180,14 @@ li {
     border-radius: 5px;
     margin: 10px;
 }
+/* 
+.note {
+    display: none;
+}
+
+.note.active {
+    display: block;
+} */
 
 #chat {
     height: 580px;

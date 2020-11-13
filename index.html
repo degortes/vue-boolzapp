@@ -74,9 +74,13 @@
                     </div>
                 </div>
                 <section id="chat" >
-                    <div id="personal" v-for="(item,index) in contacts[myIndex].messages">
+                    <div class="personal" v-for="(item,index) in contacts[myIndex].messages">
                         <div :class="(item.status == 'sent')? 'sent' : 'received' ">
                             {{item.message}}
+                            <i @click="eraseMsg(item)" class="fas fa-angle-down"></i>
+                            <div class="note" v-if="item.eraser">
+                                eliminare?
+                            </div>
                         </div>
                     </div>
                 </section>
