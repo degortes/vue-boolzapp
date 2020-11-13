@@ -1,7 +1,9 @@
 var app = new Vue ({
     el: '#root',
     data: {
-        smart: 'ok',
+        myIndex: 0,
+        reply: "",
+        findUser: "",
         contacts: [
             {
                 name: 'Michele',
@@ -86,9 +88,7 @@ var app = new Vue ({
                     }
                 ]
             }
-        ],
-        myIndex: 0,
-        reply: "",
+        ]
     },
     methods: {
         takeIndex(index) {
@@ -100,13 +100,11 @@ var app = new Vue ({
 
             var x = setTimeout(function() {
                 app.contacts[myIndex].messages.push({message : 'ok', status : 'received' });
-
-
-                
             },1000);
-
-
         }
     }
+
+
+
 
 });
