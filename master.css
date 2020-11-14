@@ -114,6 +114,7 @@ li {
     list-style-type: none;
 }
 #info-status {
+    height: 73px;
     background-color: lightblue;
     padding: 10px;
 
@@ -148,6 +149,14 @@ li {
     border-radius: 100%;
     color: lightblue;
 }
+.personal {
+    position: relative;
+}
+.personal::after {
+    content: '';
+    clear: both;
+    display: table;
+}
 
 .preview {
     display: flex;
@@ -170,6 +179,7 @@ li {
 }
 
 .sent {
+    height: 40px;
     float: right;
     clear: both;
     display: inline-block;
@@ -180,14 +190,19 @@ li {
     border-radius: 5px;
     margin: 10px;
 }
-/* 
+
 .note {
-    display: none;
+    margin: 10px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    position: absolute;
+    background-color: yellow;
+    width: 150px;
+    height: 40px;
 }
 
-.note.active {
-    display: block;
-} */
+
 
 #chat {
     height: 580px;
