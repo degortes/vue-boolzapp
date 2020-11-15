@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="master.css">
         <title>Boolzapp</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.js" integrity="sha512-z8IfZLl5ZASsWvr1syw5rkpo2HKBexjwzYDaUkIfoWo0aEqL/MgGKniDouh5DmsD9YrisbM+pihyCKIHL9VucQ==" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone.min.js" integrity="sha512-u3yRfU7FD5wGhxEMFZLZT/W/Y+C0vqUuQjPAhRWnQjBZ1LhUMnyTnZ6AfwxLSCxACT4eiyAnjFAMIt0qog67qg==" crossorigin="anonymous"></script>
     </head>
     <body>
 
@@ -38,15 +40,21 @@
                 </nav>
                 <section id="list">
                     <ul>
-                        <li @click="takeIndex(index)"  v-for="item,index in contacts">
+                        <li @click="takeIndex(index)"  v-for="(item,index) in contacts">
                             <div class="preview" v-if="item.name.toLowerCase().includes(findUser)">
                                 <img :src="'img/avatar'+item.avatar+'.jpg'" alt="">
                                 <div class="name-item" >
                                     <span>{{item.name}}</span>
                                     <p>{{item.messages[item.messages.length-1].message}}</p>
                                     <div class="user-date">
-                                        17.33
-                                        <!-- {{item.messages[item.messages.length-1].date}} -->
+                                        <p>
+                                            {{ item.messages[item.messages.length-1].date | moment1 }}
+                                        </p>
+                                        <p>
+                                            {{ item.messages[item.messages.length-1].date | moment2 }}
+                                        </p>
+                                        <span></span>
+
                                     </div>
                                 </div>
 
@@ -62,8 +70,8 @@
                     <div class="userlogo">
                         <img :src="'img/avatar'+contacts[myIndex].avatar+'.jpg'" alt="">
                         <div class="infouser">
-                            <span>{{contacts[myIndex].name}}</span>
-                            <p>ultimo accesso alle 18:00</p>
+                            <span>{{contacts[myIndex].name}} </span>
+                            <p>ultimo accesso il {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment1}} alle {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment2}}</p>
 
                         </div>
                     </div>
@@ -75,13 +83,28 @@
                 </div>
                 <section id="chat" >
                     <div class="personal" v-for="(item,index) in contacts[myIndex].messages">
-                        <div :class="(item.status == 'sent')? 'sent' : 'received' ">
+                        <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)">
                             <span>{{item.message}}</span>
+                            <div class="choose">
+                                <i @click="sure(item)" class="fas fa-angle-down" ></i>
+                                <div class="note" v-if="item.eraser">
+                                    <p @click="elimina(myIndex,index)">
+                                        eliminare?
+                                    </p>
+                                    <div>
+                                        <p>
+                                            info
+                                        </p>
+                                        <div class="infosend">
+                                            miao
 
-                            <i @click="sure(item)" class="fas fa-angle-down"></i>
-                        </div>
-                        <div @click="elimina(myIndex,index)"class="note" v-if="item.eraser">
-                            eliminare?
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
                         </div>
                     </div>
                 </section>
@@ -100,7 +123,6 @@
 
 
         </div>
-
         <script src="main.js" charset="utf-8"></script>
     </body>
 </html>

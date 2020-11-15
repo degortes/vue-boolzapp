@@ -127,10 +127,10 @@ li {
     font-weight: bold;
 }
 
-.infouser p {
+.infouser>p {
     font-size: 13px;
 }
-.name-item p {
+.name-item>p {
     padding-top: 5px;
     font-size: 12px;
 }
@@ -138,8 +138,9 @@ li {
     font-size: 12px;
     position: absolute;
     right: 5px;
-    top: 20px;
+    top:2px;
 }
+
 .fa-bell-slash {
     background-color: white;
     padding: 12px;
@@ -177,9 +178,13 @@ li {
     margin: 10px;
     clear: both;
 }
-
+.choose {
+    margin: 0 5px;
+    position: relative;
+    display: inline-block;
+    float: right;
+}
 .sent {
-    height: 40px;
     float: right;
     clear: both;
     display: inline-block;
@@ -192,14 +197,17 @@ li {
 }
 
 .note {
+    cursor: pointer;
+    right: -20px;
+    z-index: 2;
     margin: 10px;
     text-align: center;
-    line-height: 40px;
-    display: inline-block;
+    line-height: 20px;
     position: absolute;
     background-color: yellow;
-    width: 150px;
-    height: 40px;
+    max-width: 150px;
+    padding: 10px;
+    height: 80px;
 }
 
 
