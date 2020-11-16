@@ -271,7 +271,13 @@ footer::after {
     background-color: transparent;
 
 }
-
+.hour {
+    color: grey;
+    position: relative;
+    bottom: -10px;
+    font-size: 11px;
+    right: -22px;
+}
 .hide {
     display: none;
 }
