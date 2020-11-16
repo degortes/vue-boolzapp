@@ -11,7 +11,7 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(to top, grey, grey 80%, green 0);
+    background-image: linear-gradient(to top, #dfe0d9, #dfe0d9 80%, #00a093 0);
     background-attachment:fixed;
     background-repeat: no-repeat;
 
@@ -42,7 +42,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: lightgrey;
+    background-color: #f0f0f0;
 }
 .mylogo {
     display: flex;
@@ -197,7 +197,7 @@ li {
     display: inline-block;
     min-width: 100px;
     max-width: 300px;
-    background-color: green;
+    background-color: #e0f9cd;
     padding: 10px;
     border-radius: 5px;
     margin: 10px 30px;
@@ -245,7 +245,7 @@ li {
 
 footer {
     height: 50px;
-    background-color: beige;
+    background-color: #e7e6e5;
 }
 footer::after {
     content: '';
@@ -274,4 +274,29 @@ footer::after {
 
 .hide {
     display: none;
+}
+
+.received::after {
+    content: '';
+    width: 1px;
+    height: 1px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    position: absolute;
+    left: 13px;
+    margin: 10px;
+    top: 0;
+}
+.sent::after {
+    content: '';
+    width: 1px;
+    height: 1px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #e0f9cd;
+    position: absolute;
+    right: 13px;
+    margin: 10px;
+    top: 0;
 }
