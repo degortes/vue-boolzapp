@@ -200,14 +200,14 @@ li {
     background-color: green;
     padding: 10px;
     border-radius: 5px;
-    margin: 30px;
+    margin: 10px 30px;
 }
 
 .note {
     font-size: 13px;
     border: 1px solid lightgrey;
     cursor: pointer;
-    right: -30px;
+    right: -25px;
     z-index: 2;
     margin: 10px;
     text-align: center;

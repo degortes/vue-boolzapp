@@ -90,8 +90,8 @@
                     <div class="personal" v-for="(item,index) in contacts[myIndex].messages">
                         <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)">
                             <span>{{item.message}}</span>
-                            <div class="choose">
-                                <i @click="sure(item)" class="fas fa-angle-down" ></i>
+                            <div class="choose" @click="sure(item)" >
+                                <i class="fas fa-angle-down" ></i>
                                 <div class="note" v-if="item.eraser">
                                     <p @click="elimina(myIndex,index)">
                                         Delete message

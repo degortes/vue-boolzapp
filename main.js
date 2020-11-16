@@ -8,34 +8,6 @@ var app = new Vue ({
         findUser: "",
         contacts: [
             {
-                name: 'Fabio',
-                avatar: '_2',
-                visible: true,
-                messages: [
-                    {
-                        hide: true
-                    },
-                    {
-                        eraser: false,
-                        date: '20/03/2020 16:30:00',
-                        message: 'Ciao come stai?',
-                        status: 'sent'
-                    },
-                    {
-                        eraser: false,
-                        date: '20/03/2020 16:30:55',
-                        message: 'Bene grazie! Stasera ci vediamo?',
-                        status: 'received'
-                    },
-                    {
-                        eraser: false,
-                        date: '20/03/2020 17:30:55',
-                        message: 'Mi piacerebbe ma devo andare a fare laspesa.',
-                        status: 'received'
-                    }
-                ]
-            },
-            {
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
@@ -60,6 +32,34 @@ var app = new Vue ({
                         eraser: false,
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
+                        status: 'received'
+                    }
+                ]
+            },
+            {
+                name: 'Fabio',
+                avatar: '_2',
+                visible: true,
+                messages: [
+                    {
+                        hide: true
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 16:30:00',
+                        message: 'Ciao come stai?',
+                        status: 'sent'
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 16:30:55',
+                        message: 'Bene grazie! Stasera ci vediamo?',
+                        status: 'received'
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 17:30:55',
+                        message: 'Mi piacerebbe ma devo andare a fare laspesa.',
                         status: 'received'
                     }
                 ]
@@ -123,12 +123,19 @@ var app = new Vue ({
             this.myIndex = index;
         },
         insert(myIndex) {
-            this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: moment().format()})
-            this.reply = "";
 
-            var x = setTimeout(function() {
-                app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: moment().format()});
-            },1000);
+            if (this.reply.trim() != '') {
+
+                this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: moment().format()})
+                this.reply = "";
+
+                var x = setTimeout(function() {
+                    app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: moment().format()});
+                },1000);
+            } else {
+                alert('devi scrivere un messaggio per poterlo inviare!')
+            }
+
         },
         sure(item) {
             if (item.eraser) {
