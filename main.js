@@ -2,7 +2,6 @@ var app = new Vue ({
     el: '#root',
     data: {
         scrolling: '',
-        dateNow: moment().format('DD/MM/YYYY, h:mm:ss a'),
         myName: 'Danilo',
         myIndex: 0,
         reply: '',
@@ -14,7 +13,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
                         hide: true
                     },
                     {
@@ -43,8 +41,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
-
                         hide: true
                     },
                     {
@@ -73,8 +69,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
-
                         hide: true
                     },
 
@@ -104,8 +98,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
-
                         hide: true
                     },
 
@@ -129,7 +121,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
                         hide: true
                     },
                     {
@@ -158,8 +149,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
-
                         hide: true
                     },
                     {
@@ -188,8 +177,6 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
-                        eraser: false,
-
                         hide: true
                     },
 
@@ -224,7 +211,7 @@ var app = new Vue ({
             if (this.reply.trim() != '') {
 
 
-                this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: app.dateNow})
+                this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: moment().format('DD-MM-YYYY, HH:mm:ss a')})
                 this.reply = "";
                 let mymessage = setTimeout(function () {
                     app.scrollToEnd();
@@ -233,7 +220,7 @@ var app = new Vue ({
 
 
                 let x = setTimeout(function() {
-                    app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: app.dateNow});
+                    app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: moment().format('DD-MM-YYYY, HH:mm:ss a')});
 
                     let yourmessage = setTimeout(function () {
                         app.scrollToEnd();
@@ -273,13 +260,13 @@ var app = new Vue ({
     filters: {
         moment1: function (master) {
             if (master) {
-                return moment(master , 'DD-MM-YYYY, hh:mm:ss').format('DD-MMM');
+                return moment(master , 'DD-MM-YYYY, HH:mm:ss').format('DD-MMM');
 
             }
         },
         moment2: function (master) {
             if (master) {
-                return moment(master , 'DD-MM-YYYY, hh:mm:ss').format('hh:mm a');
+                return moment(master , 'DD-MM-YYYY, HH:mm:ss').format('HH:mm ');
 
             }
         }
