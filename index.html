@@ -8,7 +8,6 @@
         <title>Boolzapp</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.js" integrity="sha512-z8IfZLl5ZASsWvr1syw5rkpo2HKBexjwzYDaUkIfoWo0aEqL/MgGKniDouh5DmsD9YrisbM+pihyCKIHL9VucQ==" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.32/moment-timezone.min.js" integrity="sha512-u3yRfU7FD5wGhxEMFZLZT/W/Y+C0vqUuQjPAhRWnQjBZ1LhUMnyTnZ6AfwxLSCxACT4eiyAnjFAMIt0qog67qg==" crossorigin="anonymous"></script>
     </head>
     <body>
 
@@ -46,7 +45,7 @@
                 <section id="list">
                     <ul>
                         <li @click="takeIndex(index)"  v-for="(item,index) in contacts">
-                            <div class="preview" v-if="item.name.toLowerCase().includes(findUser)">
+                            <div class="preview" v-if="item.name.toLowerCase().includes(findUser)" :class="(index == myIndex)? 'active' : null">
                                 <img :src="'img/avatar'+item.avatar+'.jpg'" alt="">
                                 <div class="name-item" >
                                     <span>{{item.name}}</span>
@@ -90,9 +89,9 @@
                     <div class="personal" v-for="(item,index) in contacts[myIndex].messages">
                         <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)">
                             <span>{{item.message}}</span>
-                            <div class="choose" @click="sure(item)" >
+                            <div class="choose"  >
                                 <span class="hour">{{contacts[myIndex].messages[index].date | moment2}}</span>
-                                <i class="fas fa-angle-down" ></i>
+                                <i @click="sure(item)" class="fas fa-angle-down" ></i>
                                 <div class="note" v-if="item.eraser">
                                     <p @click="elimina(myIndex,index)">
                                         Delete message
@@ -118,9 +117,9 @@
                     <button class="option-send"type="button" name="button">
                         <i class="far fa-smile"></i>
                     </button>
-                    <input placeholder="Scrivi un messaggio" class="sender"@keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
+                    <input v-model="reply"placeholder="Scrivi un messaggio" class="sender"@keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
                     <button class="option-send" @click="insert(myIndex)" type="button" name="button">
-                        <i class="fas fa-microphone"></i>
+                        <i :class="(reply != '')? 'fas fa-paper-plane' : 'fas fa-microphone'"></i>
                     </button>
                 </footer>
 

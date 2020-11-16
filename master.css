@@ -14,7 +14,6 @@ body {
     background-image: linear-gradient(to top, #dfe0d9, #dfe0d9 80%, #00a093 0);
     background-attachment:fixed;
     background-repeat: no-repeat;
-
 }
 
 
@@ -55,7 +54,9 @@ main {
 li:hover {
     background-color: lightgrey;
 }
-
+.active {
+    background-color: lightgrey;
+}
 img {
     width: 50px;
     height: 50px;
@@ -64,6 +65,7 @@ img {
 }
 
 .cta {
+    color: grey;
     margin: 10px;
 }
 .cta i {
@@ -74,11 +76,10 @@ nav::after {
     content: '';
     clear: both;
     display: table;
-
 }
 
 #list {
-    height: 100%;
+    height: calc(100% - 173px);
 }
 
 .search {
@@ -108,27 +109,29 @@ nav::after {
 .userlogo, #info-status {
     display: flex;
     align-items: center;
-
 }
 ul {
     width: 100%;
     display: inline-block;
-    height: calc(100% - 173px);
+    height: 100%;
     overflow-y: scroll;
 }
 
 li {
     list-style-type: none;
 }
+
 #info-status {
     height: 73px;
     background-color: lightblue;
     padding: 10px;
 
 }
+
 .infouser {
     margin: 10px;
 }
+
 .infouser span, .name-item span{
     font-size: 15px;
     font-weight: bold;
@@ -137,6 +140,7 @@ li {
 .infouser>p {
     font-size: 13px;
 }
+
 .name-item>p {
     padding-top: 5px;
     font-size: 12px;
@@ -164,6 +168,11 @@ li {
     content: '';
     clear: both;
     display: table;
+}
+
+.choose >.fa-angle-down {
+    padding: 0 8px;
+    cursor: pointer;
 }
 
 .preview {
@@ -203,6 +212,41 @@ li {
     margin: 10px 30px;
 }
 
+.hour {
+    color: grey;
+    position: relative;
+    bottom: -10px;
+    font-size: 11px;
+    right: -22px;
+}
+.hide {
+    display: none;
+}
+
+.received::after {
+    content: '';
+    width: 1px;
+    height: 1px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    position: absolute;
+    left: 13px;
+    margin: 10px;
+    top: 0;
+}
+.sent::after {
+    content: '';
+    width: 1px;
+    height: 1px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #e0f9cd;
+    position: absolute;
+    right: 13px;
+    margin: 10px;
+    top: 0;
+}
 .note {
     font-size: 13px;
     border: 1px solid lightgrey;
@@ -270,39 +314,4 @@ footer::after {
     height: 50px;
     background-color: transparent;
 
-}
-.hour {
-    color: grey;
-    position: relative;
-    bottom: -10px;
-    font-size: 11px;
-    right: -22px;
-}
-.hide {
-    display: none;
-}
-
-.received::after {
-    content: '';
-    width: 1px;
-    height: 1px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid white;
-    position: absolute;
-    left: 13px;
-    margin: 10px;
-    top: 0;
-}
-.sent::after {
-    content: '';
-    width: 1px;
-    height: 1px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #e0f9cd;
-    position: absolute;
-    right: 13px;
-    margin: 10px;
-    top: 0;
 }

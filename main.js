@@ -1,10 +1,11 @@
 var app = new Vue ({
     el: '#root',
     data: {
+        textInput: '',
         dateNow: moment().format(),
         myName: 'Danilo',
         myIndex: 0,
-        reply: "",
+        reply: '',
         findUser: "",
         contacts: [
             {
@@ -13,9 +14,9 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
+                        eraser: false,
                         hide: true
                     },
-
                     {
                         eraser: false,
                         date: '10/01/2020 15:30:55',
@@ -42,6 +43,8 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
+                        eraser: false,
+
                         hide: true
                     },
                     {
@@ -70,6 +73,8 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
+                        eraser: false,
+
                         hide: true
                     },
 
@@ -99,6 +104,92 @@ var app = new Vue ({
                 visible: true,
                 messages: [
                     {
+                        eraser: false,
+
+                        hide: true
+                    },
+
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Lo sai che ha aperto una nuova pizzeria?',
+                        eraser: false,
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Si, ma preferirei andare al cinema',
+                        eraser: false,
+                        status: 'received'
+                    }
+                ]
+            },
+            {
+                name: 'Michele',
+                avatar: '_1',
+                visible: true,
+                messages: [
+                    {
+                        eraser: false,
+                        hide: true
+                    },
+                    {
+                        eraser: false,
+                        date: '10/01/2020 15:30:55',
+                        message: 'Hai portato a spasso il cane?',
+                        status: 'sent',
+                    },
+                    {
+                        eraser: false,
+                        date: '10/01/2020 15:50:00',
+                        message: 'Ricordati di dargli da mangiare',
+                        status: 'sent'
+                    },
+                    {
+                        eraser: false,
+                        date: '10/01/2020 16:15:22',
+                        message: 'Tutto fatto!',
+                        status: 'received'
+                    }
+                ]
+            },
+            {
+                name: 'Fabio',
+                avatar: '_2',
+                visible: true,
+                messages: [
+                    {
+                        eraser: false,
+
+                        hide: true
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 16:30:00',
+                        message: 'Ciao come stai?',
+                        status: 'sent'
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 16:30:55',
+                        message: 'Bene grazie! Stasera ci vediamo?',
+                        status: 'received'
+                    },
+                    {
+                        eraser: false,
+                        date: '20/03/2020 17:30:55',
+                        message: 'Mi piacerebbe ma devo andare a fare laspesa.',
+                        status: 'received'
+                    }
+                ]
+            },
+            {
+                name: 'Luisa',
+                avatar: '_4',
+                visible: true,
+                messages: [
+                    {
+                        eraser: false,
+
                         hide: true
                     },
 
@@ -153,10 +244,12 @@ var app = new Vue ({
                 });
 
                 item.eraser = true;
+
             }
         },
         elimina(myIndex,index) {
             app.contacts[myIndex].messages.splice(index,1);
+
         }
 
 
@@ -176,7 +269,6 @@ var app = new Vue ({
         }
 
     }
-
 
 
 
