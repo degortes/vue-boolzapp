@@ -1,7 +1,8 @@
 var app = new Vue ({
     el: '#root',
     data: {
-
+        dateNow: moment().format(),
+        myName: 'Danilo',
         myIndex: 0,
         reply: "",
         findUser: "",

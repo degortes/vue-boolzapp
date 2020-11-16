@@ -17,6 +17,11 @@
                 <div class="topside">
                     <div class="mylogo">
                         <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2FAshwinvalento%2Fcartoon-avatar%2Fmaster%2Flib%2Fimages%2Fmale%2F45.png&f=1&nofb=1" alt="">
+                        <div class="myinfo">
+                            <p><strong>{{myName}}</strong></p>
+                            <p> Ultimo accesso alle {{dateNow | moment2}}</p>
+
+                        </div>
                     </div>
                     <div class="cta">
                         <i class="fas fa-circle-notch"></i>
@@ -89,15 +94,15 @@
                                 <i @click="sure(item)" class="fas fa-angle-down" ></i>
                                 <div class="note" v-if="item.eraser">
                                     <p @click="elimina(myIndex,index)">
-                                        eliminare?
+                                        Delete message
                                     </p>
-                                    <div>
+                                    <div class="more-info">
                                         <p>
-                                            info
+                                            Message info
+                                            <i class="fas fa-angle-down" ></i>
                                         </p>
-                                        <div class="infosend">
-                                            miao
-
+                                        <div class="hide">
+                                            <p>Inviato il {{contacts[myIndex].messages[index].date | moment1}} </p>alle {{contacts[myIndex].messages[index].date | moment2}}</p>
                                         </div>
                                     </div>
                                 </div>
