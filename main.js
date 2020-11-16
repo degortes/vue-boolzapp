@@ -2,11 +2,11 @@ var app = new Vue ({
     el: '#root',
     data: {
         scrolling: '',
-        dateNow: moment().format(),
+        dateNow: moment().format('DD/MM/YYYY, h:mm:ss a'),
         myName: 'Danilo',
         myIndex: 0,
         reply: '',
-        findUser: "",
+        findUser: '',
         contacts: [
             {
                 name: 'Michele',
@@ -224,7 +224,7 @@ var app = new Vue ({
             if (this.reply.trim() != '') {
 
 
-                this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: moment().format()})
+                this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: app.dateNow})
                 this.reply = "";
                 let mymessage = setTimeout(function () {
                     app.scrollToEnd();
@@ -233,7 +233,7 @@ var app = new Vue ({
 
 
                 let x = setTimeout(function() {
-                    app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: moment().format()});
+                    app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: app.dateNow});
 
                     let yourmessage = setTimeout(function () {
                         app.scrollToEnd();
