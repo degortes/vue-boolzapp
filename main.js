@@ -1,6 +1,7 @@
 var app = new Vue ({
     el: '#root',
     data: {
+        scrolling: '',
         textInput: '',
         dateNow: moment().format(),
         myName: 'Danilo',
@@ -217,14 +218,23 @@ var app = new Vue ({
 
             if (this.reply.trim() != '') {
 
+
                 this.contacts[myIndex].messages.push({message : this.reply, status : 'sent', eraser: false, date: moment().format()})
                 this.reply = "";
+                let mymessage = setTimeout(function () {
+                    app.scrollToEnd();
 
-                var x = setTimeout(function() {
+                }, 1);
+
+
+                let x = setTimeout(function() {
                     app.contacts[myIndex].messages.push({message : 'ok', status : 'received', eraser: false, date: moment().format()});
+
+                    let yourmessage = setTimeout(function () {
+                        app.scrollToEnd();
+                    }, 1);
+
                 },1000);
-            } else {
-                alert('devi scrivere un messaggio per poterlo inviare!')
             }
 
         },
@@ -242,16 +252,17 @@ var app = new Vue ({
                         msg.eraser = false;
                     });
                 });
-
                 item.eraser = true;
-
             }
         },
         elimina(myIndex,index) {
             app.contacts[myIndex].messages.splice(index,1);
 
+        },
+        scrollToEnd() {
+            app.scrolling = this.$el.querySelector("#chat");
+            app.scrolling.scrollTop = app.scrolling.scrollHeight;
         }
-
 
     },
     filters: {
@@ -267,7 +278,6 @@ var app = new Vue ({
 
             }
         }
-
     }
 
 

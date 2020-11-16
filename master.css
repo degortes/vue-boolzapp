@@ -280,7 +280,7 @@ li {
 
 
 #chat {
-    height: 580px;
+    height:  calc(100% - 120px);
     background-image: url('https://i.imgur.com/1Rg03go.png');
     background-size: contain;
     overflow-y: scroll;
