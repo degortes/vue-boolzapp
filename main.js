@@ -2,7 +2,6 @@ var app = new Vue ({
     el: '#root',
     data: {
         scrolling: '',
-        textInput: '',
         dateNow: moment().format(),
         myName: 'Danilo',
         myIndex: 0,
@@ -125,8 +124,8 @@ var app = new Vue ({
                 ]
             },
             {
-                name: 'Michele',
-                avatar: '_1',
+                name: 'Giulia',
+                avatar: '_5',
                 visible: true,
                 messages: [
                     {
@@ -135,27 +134,27 @@ var app = new Vue ({
                     },
                     {
                         eraser: false,
-                        date: '10/01/2020 15:30:55',
-                        message: 'Hai portato a spasso il cane?',
+                        date: '10/02/2020 18:30:55',
+                        message: 'Hai fatto commit e pushato??',
                         status: 'sent',
                     },
                     {
                         eraser: false,
-                        date: '10/01/2020 15:50:00',
-                        message: 'Ricordati di dargli da mangiare',
+                        date: '10/02/2020 18:50:00',
+                        message: 'Ricordati di farlo di continuo',
                         status: 'sent'
                     },
                     {
                         eraser: false,
-                        date: '10/01/2020 16:15:22',
-                        message: 'Tutto fatto!',
+                        date: '10/02/2020 19:15:22',
+                        message: 'Tranquillo!',
                         status: 'received'
                     }
                 ]
             },
             {
-                name: 'Fabio',
-                avatar: '_2',
+                name: 'Alessandro',
+                avatar: '_6',
                 visible: true,
                 messages: [
                     {
@@ -165,27 +164,27 @@ var app = new Vue ({
                     },
                     {
                         eraser: false,
-                        date: '20/03/2020 16:30:00',
-                        message: 'Ciao come stai?',
+                        date: '20/04/2020 19:30:00',
+                        message: 'Hai sentito la nuova canzone di Vasco??',
                         status: 'sent'
                     },
                     {
                         eraser: false,
-                        date: '20/03/2020 16:30:55',
-                        message: 'Bene grazie! Stasera ci vediamo?',
+                        date: '20/04/2020 19:32:55',
+                        message: 'No guarda, sto già male di stomaco.. non vorrei il colpo di grazia',
                         status: 'received'
                     },
                     {
                         eraser: false,
-                        date: '20/03/2020 17:30:55',
-                        message: 'Mi piacerebbe ma devo andare a fare laspesa.',
-                        status: 'received'
+                        date: '20/03/2020 19:35:55',
+                        message: 'Esagerato.. ',
+                        status: 'sent'
                     }
                 ]
             },
             {
-                name: 'Luisa',
-                avatar: '_4',
+                name: 'Andrea',
+                avatar: '_7',
                 visible: true,
                 messages: [
                     {
@@ -196,15 +195,21 @@ var app = new Vue ({
 
                     {
                         date: '10/01/2020 15:30:55',
-                        message: 'Lo sai che ha aperto una nuova pizzeria?',
+                        message: 'Ma quando finisce questa cavolo di pandemia?',
                         eraser: false,
                         status: 'sent'
                     },
                     {
                         date: '10/01/2020 15:50:00',
-                        message: 'Si, ma preferirei andare al cinema',
+                        message: 'Se tu e gli altri negazionisti continuate a dar retta alle fake news, beh.. per sempre',
                         eraser: false,
                         status: 'received'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: '#Noncielodicono!! sei solo servo del sistema.. Da quale multinazionale sei stipendiato??' ,
+                        eraser: false,
+                        status: 'sent'
                     }
                 ]
             }
