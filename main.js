@@ -164,10 +164,7 @@ var app = new Vue ({
         takeIndex(index) {
             this.isClicked = false;
             this.myIndex = index;
-            let yourmessage = setTimeout(function () {
-                app.scrollToEnd();
-            }, 1);
-
+            app.scrollToEnd();
         },
         takemsgIndex(index) {
             this.msgIndex = index;
@@ -178,25 +175,22 @@ var app = new Vue ({
             if (this.reply.trim() != '') {
                 this.contacts[app.myIndex].messages.push({message : this.reply, status : 'sent',  date: moment().format('DD-MM-YYYY, HH:mm:ss a')})
                 this.reply = "";
-                let mymessage = setTimeout(function () {
-                    app.scrollToEnd();
-                }, 1);
-
+                app.scrollToEnd();
 
                 let x = setTimeout(function() {
                     app.contacts[app.myIndex].messages.push({message : 'ok', status : 'received',  date: moment().format('DD-MM-YYYY, HH:mm:ss a')});
-
-                    let yourmessage = setTimeout(function () {
-                        app.scrollToEnd();
-                    }, 1);
-
+                    app.scrollToEnd();
                 },1000);
             }
 
         },
         scrollToEnd() {
-            app.scrolling = this.$el.querySelector("#chat");
-            app.scrolling.scrollTop = app.scrolling.scrollHeight;
+
+            Vue.nextTick(function() {
+                app.scrolling = app.$el.querySelector("#chat");
+                app.scrolling.scrollTop = app.scrolling.scrollHeight;
+            });
+
         },
         del() {
             this.isClicked = false;
@@ -225,7 +219,15 @@ var app = new Vue ({
 
             }
         }
-    }
+    },
+    mounted: function() {
+        this.scrollToEnd();
+
+
+    },
+
+
+
 
 
 
