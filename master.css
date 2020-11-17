@@ -315,3 +315,7 @@ footer::after {
     background-color: transparent;
 
 }
+
+.erasemenu {
+    display: none;
+}

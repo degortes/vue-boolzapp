@@ -10,7 +10,6 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     </head>
     <body>
-
         <div id="root">
             <aside>
                 <div class="topside">
@@ -26,7 +25,6 @@
                         <i class="far fa-comment-alt"></i>
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
-
                 </div>
                 <section id="info-status">
                     <i class="far fa-bell-slash"></i>
@@ -57,16 +55,12 @@
                                             {{ item.messages[item.messages.length-1].date | moment2 }}
                                         </p>
                                         <span></span>
-
                                     </div>
                                 </div>
-
                             </div>
                         </li>
                     </ul>
-
                 </section>
-
             </aside>
             <main>
                 <div class="topmain">
@@ -74,8 +68,7 @@
                         <img :src="'img/avatar'+contacts[myIndex].avatar+'.jpg'" alt="">
                         <div class="infouser">
                             <span>{{contacts[myIndex].name}} </span>
-                            <p>ultimo accesso il {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment1}} alle {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment2}}</p>
-
+                            <p v-show="contacts[myIndex].messages[0].message != ''">ultimo messaggio inviato il {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment1}} alle {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment2}}</p>
                         </div>
                     </div>
                     <div class="cta">
@@ -85,14 +78,14 @@
                     </div>
                 </div>
                 <section id="chat" >
-                    <div class="personal" v-for="(item,index) in contacts[myIndex].messages">
+                    <div class="personal" v-for="(item,index) in contacts[myIndex].messages" :class="(item.message != '')? null : 'hide'">
                         <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)">
-                            <span>{{item.message}}</span>
+                            <span >{{item.message}}</span>
                             <div class="choose"  >
                                 <span class="hour">{{contacts[myIndex].messages[index].date | moment2}}</span>
-                                <i @click="sure(item)" class="fas fa-angle-down" ></i>
-                                <div class="note" v-if="item.eraser">
-                                    <p @click="elimina(myIndex,index)">
+                                <i @click="takemsgIndex(index)" class="fas fa-angle-down" ></i>
+                                <div class="note" :class="(index == msgIndex)? null : 'erasemenu' " v-if="isClicked">
+                                    <p @click="del()">
                                         Delete message
                                     </p>
                                     <div class="more-info">
@@ -105,10 +98,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </div>
                 </section>
@@ -116,16 +106,12 @@
                     <button class="option-send"type="button" name="button">
                         <i class="far fa-smile"></i>
                     </button>
-                    <input v-model="reply"placeholder="Scrivi un messaggio" class="sender"@keyup.enter="insert(myIndex)" type="text" name="" value="" v-model="reply">
-                    <button class="option-send" @click="insert(myIndex)" type="button" name="button">
+                    <input v-model="reply"placeholder="Scrivi un messaggio" class="sender"@keyup.enter="insert" type="text" v-model="reply">
+                    <button class="option-send" @click="insert" type="button" name="button">
                         <i :class="(reply != '')? 'fas fa-paper-plane' : 'fas fa-microphone'"></i>
                     </button>
                 </footer>
-
-
             </main>
-
-
         </div>
         <script src="main.js" charset="utf-8"></script>
     </body>
