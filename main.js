@@ -194,16 +194,7 @@ var app = new Vue ({
         },
         del() {
             this.isClicked = false;
-
-            if (this.contacts[app.myIndex].messages.length == 1) {
-                let replace = app.contacts[app.myIndex].messages[0]
-                replace.message = '';
-                replace.date = '';
-                replace.status = '';
-            }else {
-                this.$delete(this.contacts[app.myIndex].messages, app.msgIndex);
-
-            }
+            this.$delete(this.contacts[app.myIndex].messages, app.msgIndex);
         }
     },
     filters: {

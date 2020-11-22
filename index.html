@@ -42,16 +42,16 @@
                 <section id="list">
                     <ul>
                         <li @click="takeIndex(index)"  v-for="(item,index) in contacts">
-                            <div class="preview" v-if="item.name.toLowerCase().includes(findUser)" :class="(index == myIndex)? 'active' : null">
+                            <div class="preview" v-if="item.name.toLowerCase().includes(findUser.toLowerCase())" :class="(index == myIndex)? 'active' : null">
                                 <img :src="'img/avatar'+item.avatar+'.jpg'" alt="">
                                 <div class="name-item" >
                                     <span>{{item.name}}</span>
-                                    <p>{{item.messages[item.messages.length-1].message}}</p>
+                                    <p v-if="item.messages.length > 0">{{item.messages[item.messages.length-1].message}}</p>
                                     <div class="user-date">
-                                        <p>
+                                        <p v-if="item.messages.length > 0">
                                             {{ item.messages[item.messages.length-1].date | moment1 }}
                                         </p>
-                                        <p>
+                                        <p v-if="item.messages.length > 0">
                                             {{ item.messages[item.messages.length-1].date | moment2 }}
                                         </p>
                                         <span></span>
@@ -68,7 +68,10 @@
                         <img :src="'img/avatar'+contacts[myIndex].avatar+'.jpg'" alt="">
                         <div class="infouser">
                             <span>{{contacts[myIndex].name}} </span>
-                            <p v-show="contacts[myIndex].messages[0].message != ''">ultimo messaggio inviato il {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment1}} alle {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment2}}</p>
+                            <div v-if="contacts[myIndex].messages.length > 0">
+
+                                <p v-show="contacts[myIndex].messages[0].message != ''" >ultimo messaggio inviato il {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment1}} alle {{contacts[myIndex].messages[contacts[myIndex].messages.length-1].date | moment2}}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="cta">
@@ -79,7 +82,7 @@
                 </div>
                 <section id="chat" >
                     <div class="personal" v-for="(item,index) in contacts[myIndex].messages" :class="(item.message != '')? null : 'hide'">
-                        <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)">
+                        <div :class="(item.status == 'sent')? 'sent' : 'received'" v-show="(item.status)" >
                             <span >{{item.message}}</span>
                             <div class="choose"  >
                                 <span class="hour">{{contacts[myIndex].messages[index].date | moment2}}</span>
